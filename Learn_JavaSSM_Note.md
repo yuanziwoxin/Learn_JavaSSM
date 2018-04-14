@@ -4,7 +4,7 @@ title: Java SSM框架整合笔记
 
 # Java SSM框架整合笔记
 
-@(Java SSM)
+@(JavaSSM)
 
 ## 1. Spring的IOC的底层实现原理
 
@@ -151,3 +151,42 @@ public class SpringBeanTest {
 }
 ```
 
+### （2）Bean的配置
+- id和name
+  - 一般情况下，装配一个Bean时，通过制定一个id属性作为Bean的名称；
+  - id属性在IOC容器中必须是**唯一的**；
+  - 如果Bean的名称中**含特殊字符**，就需要使用**name**属性（**此时不能使用id属性**）；
+- class
+ - class用于设置一个类的完全路径名称，主要作用是**IOC容器生成类的实例**；
+
+### （3）Bean的作用域
+
+|类别|说明|
+|:-------:|:-----------:|
+|**singleton**|在SpringIOC容器中仅存在一个Bean实例，Bean以**单实例**的方式存在|
+|**prototype**|每次调用getBean()都会返回一个**新的的实例**|
+|**request**|每次**HTTP**请求都会创建一个新的Bean，该作用域**仅适用于WebApplictionContext环境**|
+|**session**|**同一个HTTP Session共享一个Bean**，**不同的HTTP Session使用不同的Bean**。该作用域**仅适用于WebApplicationContext环境**|
+
+例：
+（1）缺省scope属性，表示Bean的作用域为默认的singleton，即单实例的方式；
+```xml
+<bean id="person" class="com.imooc.ioc.demo3.Person"/>
+```
+（2）作用域为prototype；
+```xml
+<bean id="person" class="com.imooc.ioc.demo3.Person" scope="prototype">
+```
+### （4）Bean的生命周期（难点）
+
+1. instantiate  bean （对象实例化）；
+2. populate properties（封装属性）；
+3. 如果Bean实现BeanNameAware，执行setBeanName； 
+4. 如果Bean实现BeanFactoryAware或者ApplicationContextAware，设置工厂 setBeanFactory或者上下文对象setApplicationContext；
+5. 如果存在类实现BeanPostProcessor（后处理Bean），执行postProcessorBeforeInitialization；
+6. 如果Bean实现InitializingBean，执行afterPropertiesSet；
+7. 调用 < bean init-method="init"> 指定初始化方法init，初始化Bean对象；
+8. 如果存在类实现BeanPostProcessor（处理Bean），执行postProcessAfterInitialization;
+9. **执行业务处理**;
+10. 如果Bean实现DisposableBean，执行destroy;（销毁Spring）
+11. 调用< bean destory-method="customerDestroy" > 指定销毁方法；
