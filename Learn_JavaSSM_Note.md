@@ -4,7 +4,7 @@ title: Java SSM框架整合笔记
 
 # Java SSM框架整合笔记
 
-@(JavaSSM)
+@(Java SSM)
 
 ## 1. Spring的IOC的底层实现原理
 
