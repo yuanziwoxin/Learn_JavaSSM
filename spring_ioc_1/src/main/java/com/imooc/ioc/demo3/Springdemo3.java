@@ -76,5 +76,23 @@ public class Springdemo3 {
         ((ClassPathXmlApplicationContext) applicationContext).close();
     }
 
+    /**
+     *  测试BeanPostProcessor的作用
+     *  注意：BeanPostProcessor包含初始化前执行的方法和初始化后执行的方法，
+     *      其中初始化后执行的方法可以用来实现一些业务逻辑之前的校检工作。
+     */
+    @Test
+    public void demo5(){
+        //创建工厂
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        //通过工厂获得类
+        UserDao userDao= (UserDao) applicationContext.getBean("userDao");
+
+        userDao.findall();
+        userDao.save();
+        userDao.update();
+        userDao.delete();
+
+    }
 
 }

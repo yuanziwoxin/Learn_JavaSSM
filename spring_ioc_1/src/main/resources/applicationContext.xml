@@ -29,9 +29,11 @@
     <!-- <bean id="person" class="com.imooc.ioc.demo3.Person" scope="prototype"/> -->
 
     <!--指定初始化方法和销毁方法-->
-    <bean id="man" class="com.imooc.ioc.demo3.Man" init-method="setup" destroy-method="teardown">
+    <!--<bean id="man" class="com.imooc.ioc.demo3.Man" init-method="setup" destroy-method="teardown">
         <property name="name" value="李四"/>
-    </bean>
+    </bean>-->
     <!--这个不需要配置id属性，配置id属性是为了在工厂和其他地方用到bean，而MyBeanPostProcessor这个类在实例化的时候Spring会自动帮我们去调用bean-->
     <bean class="com.imooc.ioc.demo3.MyBeanPostProcessor"/>
+
+    <bean id="userDao" class="com.imooc.ioc.demo3.UserDaoImpl"/>
 </beans>
