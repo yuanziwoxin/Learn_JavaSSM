@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -33,7 +34,96 @@
         <property name="name" value="李四"/>
     </bean>-->
     <!--这个不需要配置id属性，配置id属性是为了在工厂和其他地方用到bean，而MyBeanPostProcessor这个类在实例化的时候Spring会自动帮我们去调用bean-->
-    <bean class="com.imooc.ioc.demo3.MyBeanPostProcessor"/>
+    <!--<bean class="com.imooc.ioc.demo3.MyBeanPostProcessor"/>
 
-    <bean id="userDao" class="com.imooc.ioc.demo3.UserDaoImpl"/>
+    <bean id="userDao" class="com.imooc.ioc.demo3.UserDaoImpl"/>-->
+
+    <!--通过构造方法对Bean的属性进行注入-->
+    <bean id="user" class="com.imooc.ioc.demo4.User">
+        <!--通过构造函数对属性进行注入时，其对应的配置 -->
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="age" value="32"/>
+    </bean>
+
+    <!--Bean的setter方法的属性注入-->
+   <!-- <bean id="person" class="com.imooc.ioc.demo4.Person">
+        <property name="name" value="李四"/>
+        <property name="age" value="25"/>
+        &lt;!&ndash;通过ref将cat类对象注入到person类对象中&ndash;&gt;
+        &lt;!&ndash;普通类型的值设置用value，对象的值设置用ref&ndash;&gt;
+        &lt;!&ndash;ref主要用来引入其他bean的id或name的&ndash;&gt;
+        <property name="cat" ref="cat"/>
+    </bean>
+
+    <bean id="cat" class="com.imooc.ioc.demo4.Cat">
+        <property name="name" value="小花"/>
+    </bean>-->
+
+    <!--利用p名称空间进行属性注入-->
+    <bean id="person" class="com.imooc.ioc.demo4.Person" p:name="张三" p:age="25" p:cat-ref="cat"/>
+    <bean id="cat" class="com.imooc.ioc.demo4.Cat" p:name="小白"/>
+
+    <!--利用SpEL进行属性注入-->
+    <!-- SpEL:Spring Expression Language,Spring表达式语言-->
+    <bean id="productinfo" class="com.imooc.ioc.demo4.ProducInfo"/>
+
+    <bean id="category" class="com.imooc.ioc.demo4.Category">
+        <property name="name" value="#{'服装'}"/>
+    </bean>
+
+    <bean id="product" class="com.imooc.ioc.demo4.Product">
+        <!--使用字符串-->
+        <property name="name" value="#{'七匹狼男装'}"/>
+        <!--使用指定的Bean对象，并使用其方法-->
+        <property name="price" value="#{productinfo.calculatePrice()}"/>
+        <!--使用指定的Bean对象-->
+        <property name="category" value="#{category}"/>
+        <!--使用静态的字段或方法-->
+        <property name="size" value="#{10*T(java.lang.Math).PI}"/>
+    </bean>
+
+    <!--复杂类型的属性注入-->
+
+    <bean id="collectionBean" class="com.imooc.ioc.demo4.CollectionBean">
+        <!--数组类型-->
+        <property name="str">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <!--List集合类型-->
+        <property name="list">
+            <list>
+                <value>A101</value>
+                <value>B102</value>
+                <value>C103</value>
+                <value>D105</value>
+            </list>
+        </property>
+        <!--Set集合类型-->
+        <property name="set">
+            <set>
+                <value>abcd</value>
+                <value>efhi</value>
+            </set>
+        </property>
+        <!--Map集合类型-->
+        <property name="map">
+            <map>
+                <entry key="张三" value="101"/>
+                <entry key="李四" value="102"/>
+                <entry key="王二" value="103"/>
+            </map>
+        </property>
+        <!--属性类型-->
+        <property name="pt">
+            <props>
+                <prop key="username">Kelly</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+
 </beans>
