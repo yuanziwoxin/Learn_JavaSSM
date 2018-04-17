@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--配置目标类-->
+   <bean id="studentDao" class="com.yuan.aop.demo3.StudentDaoImpl"/>
+
+   <!--前置通知配置-->
+   <bean id="myBeforeAdvice" class="com.yuan.aop.demo3.MyBeforeAdvice"/>
+
+   <!--Spring的AOP 产生代理对象-->
+   <bean id="studentDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+      <!--配置目标类-->
+      <property name="target" ref="studentDao"/>
+      <!--实现的接口-->
+      <property name="proxyInterfaces" value="com.yuan.aop.demo3.StudentDao"/>
+      <!--采用拦截的名称-->
+      <property name="interceptorNames" value="myBeforeAdvice"/>
+
+      <!--当设置为true时，强制使用CGLIB代理;不设置或设置为false,则使用JDK动态代理-->
+      <!--<property name="optimize" value="true"/>-->
+
+      <!--表示是否对类代理而不是接口，设置为true时，表示对类代理，使用CGLIB代理-->
+      <!--<property name="proxyTargetClass" value="true"/>-->
+
+      <!--返回的代理是否为单实例，默认为单例-->
+      <!--<property name="singleton" value="true"/>-->
+   </bean>
+
+
+</beans>

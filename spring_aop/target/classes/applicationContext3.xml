@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--设置目标类-->
+    <bean id="customerDao" class="com.yuan.aop.demo5.CustomerDao"/>
+    <bean id="studentDao" class="com.yuan.aop.demo5.StudentDaoImpl"/>
+
+    <!--设置增强（通知）-->
+    <bean id="myBeforeAdvice" class="com.yuan.aop.demo5.MyBeforeAdvice"/>
+    <bean id="myRoundAdvice" class="com.yuan.aop.demo5.MyRoundAdvice"/>
+
+    <!--配置基于Bean名称的自动代理-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <!--配置要代理的Bean名称-->
+        <!--设置对所有以Dao为结尾的Bean所有方法使用代理-->
+        <property name="beanNames" value="*Dao"/>
+        <!--配置拦截器的名称-->
+        <property name="interceptorNames" value="myBeforeAdvice"/>
+    </bean>
+</beans>

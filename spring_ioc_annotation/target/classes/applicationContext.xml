@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+           <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+           <!--xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="-->
+        <!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+        <!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">-->
+    <!--开启注解扫描前要在上面定义命名空间（xmlns:context）,注意：加完命名空间的定义，还要在xsi:schemaLocation中加上其地址-->
+    <!--开启注解扫描：开启之后类上面的注解和属性上面的注解都可以使用-->
+    <context:component-scan base-package="com.yuan.ioc"/>
+
+    <!--这个开启之后只有属性上面的注解能够使用，开启上面的注解扫描则这里也就开启了-->
+    <context:annotation-config/>
+    
+    <bean id="productService" class="com.yuan.ioc.demo3.ProductService">
+        <!--<property name="productDao" ref="productDao"/>-->
+        <!--<property name="catagoryDao"  ref="catagoryDao"/>-->
+    </bean>
+
+    <bean id="productDao" class="com.yuan.ioc.demo3.ProductDao"/>
+    <bean id="catagoryDao" class="com.yuan.ioc.demo3.CatagoryDao"/>
+
+</beans>

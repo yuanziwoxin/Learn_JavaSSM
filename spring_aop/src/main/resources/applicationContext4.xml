@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--设置目标类-->
+    <bean id="customerDao" class="com.yuan.aop.demo6.CustomerDao"/>
+    <bean id="studentDao" class="com.yuan.aop.demo6.StudentDaoImpl"/>
+
+    <!--设置通知-->
+    <bean id="myBeforeAdvice" class="com.yuan.aop.demo6.MyBeforeAdvice"/>
+    <bean id="myRoundAdvice" class="com.yuan.aop.demo6.MyRoundAdvice"/>
+
+    <!--设置切面（要拦截哪些方法）-->
+    <bean id="myAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!--配置要拦截的方法-->
+        <property name="patterns" value="com\.yuan\.aop\.demo6\.CustomerDao\.save,com\.yuan\.aop\.demo6\.StudentDaoImpl\.save"/>
+        <!--配置拦截（增强）-->
+        <property name="advice" ref="myRoundAdvice"/>
+    </bean>
+
+    <!--配置自动生成代理-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+</beans>
