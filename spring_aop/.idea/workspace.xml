@@ -2,53 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9476b0f-5a36-4b50-9dc7-33bcd104916e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo1/Demo1_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo1/MyJdkProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo1/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo1/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo2/Demo2_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo2/MyCglibProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo2/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo3/Demo3_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo3/MyBeforeAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo3/StudentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo3/StudentDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo4/CustomerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo4/Demo4_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo4/MyRoundAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/CustomerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/Demo5_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/MyBeforeAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/MyRoundAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/StudentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo5/StudentDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/CustomerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/Demo6_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/MyBeforeAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/MyRoundAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/StudentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/StudentDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo1/Demo1Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo1/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo1/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo2/Bean1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo2/Bean2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo2/demo2Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo3/CatagoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo3/Demo3_Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo3/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/java/com/yuan/ioc/demo3/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_ioc_annotation/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_ioc_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_ioc_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext4.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,38 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Demo6_Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/Demo6_Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="10" column="58" lean-forward="true" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext4.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext4.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yuan/aop/demo6/StudentDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,7 +82,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -179,75 +102,6 @@
             <path>
               <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="demo3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="demo4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="demo5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="demo6" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring_aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring_aop" type="b2602c69:ProjectViewProjectNode" />
@@ -479,7 +333,7 @@
       <updated>1523871001401</updated>
       <workItem from="1523871017523" duration="12136000" />
       <workItem from="1523928650190" duration="14718000" />
-      <workItem from="1523959782933" duration="2737000" />
+      <workItem from="1523959782933" duration="4004000" />
     </task>
     <servers />
   </component>
@@ -516,11 +370,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29591000" />
+    <option name="totallyTimeSpent" value="30858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -886,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext4.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="48">
+          <caret line="2" column="48" lean-forward="true" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
         </state>
       </provider>
     </entry>

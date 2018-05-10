@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuan.sm.dao.SelfDao">
+    <!--这里不用再重新声明resultMap，可以直接引用StaffDao.xml中的resultMap-->
+    <select id="selectByAccount" parameterType="String" resultMap="com.yuan.sm.dao.StaffDao.resultMap">
+        select * from staff where account=#{account}
+    </select>
+
+    <update id="updatePsw">
+        update staff set password=#{newPassword} where id=#{id}
+    </update>
+
+</mapper>

@@ -17,8 +17,6 @@
         <!--配置拦截（增强）-->
         <property name="advice" ref="myRoundAdvice"/>
     </bean>
-
     <!--配置自动生成代理-->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
-
 </beans>

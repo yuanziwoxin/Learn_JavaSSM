@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuan.sm.dao.DepartmentDao">
+    <!--配置结果集-->
+    <!--这里type使用的是简称，因为在spring.xml文件中配置sqlSessionFactory指定了实体类可以使用简称-->
+    <resultMap id="resultMap" type="Department">
+        <!--主键用id标签，不是主键用result标签-->
+        <!--配置实体类中的字段与数据库表的字段的对应关系-->
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="name" column="name" javaType="String"/>
+        <result property="address" column="address" javaType="String"/>
+    </resultMap>
+
+    <!--配置SQL语句-->
+
+    <!--
+    id="insert"表示DepartmentDao中的添加部门记录的方法名；
+    parameterType="Department"表示添加部门记录方法中的参数属性；
+    useGeneratedKeys="true"表示调用自增这种规范，因为insert方法中的id字段是自增的
+    -->
+    <insert id="insert" parameterType="Department" useGeneratedKeys="true">
+        insert into department(name,address) values(#{name},#{address})
+    </insert>
+
+    <update id="update" parameterType="Department">
+        update department set name = #{name},address = #{address} where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from department where id =#{id}
+    </delete>
+
+    <select id="selectById" parameterType="Integer" resultMap="resultMap">
+        select * from department where id=#{id}
+    </select>
+
+    <select id="selectAll" resultMap="resultMap">
+        select * from department
+    </select>
+</mapper>
