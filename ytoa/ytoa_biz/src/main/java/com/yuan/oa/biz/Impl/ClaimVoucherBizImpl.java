@@ -34,7 +34,7 @@ public class ClaimVoucherBizImpl implements ClaimVoucherBiz {
     public void save(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items) {
         claimVoucher.setCreateTime(new Date());//设置报销单的创建时间
         //还未保存，保存的待处理人就是创建者，提交保存的信息的人是创建者
-        claimVoucher.setNextDealSn(claimVoucher.getCreateSn());////设置报销单的待处理人
+        claimVoucher.setNextDealSn(claimVoucher.getCreateSn());//设置报销单的待处理人
         claimVoucher.setStatus(Constant.CLAIMVOUCHER_CREATED);//设置报销单的状态为“新创建”
         claimVoucherDao.insert(claimVoucher);//添加报销单主要信息到报销表
 
