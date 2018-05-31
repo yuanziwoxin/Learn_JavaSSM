@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuan.oa.dao.DealRecordDao">
+    <resultMap id="dealRecord" type="com.yuan.oa.entity.DealRecord">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="claimVoucherId" column="claim_voucher_id" javaType="Integer"/>
+        <result property="dealSn" column="deal_sn" javaType="String"/>
+        <result property="dealTime" column="deal_time" javaType="java.util.Date"/>
+        <result property="dealWay" column="deal_way" javaType="String"/>
+        <result property="dealResult" column="deal_result" javaType="String"/>
+        <result property="comment" column="comment" javaType="String"/>
+        <association property="dealer" column="deal_sn" javaType="Employee">
+            <!--获取需要的处理人姓名和职务，将这两个字段分别进行关联-->
+            <!--
+            注意：
+            （1）如果这里的column属性的属性值与上面的column属性的属性值无重复，则可以不配置关联；
+            （2）如果有重复（相同），则这里的配置的column属性的属性值必须改成与上面不相同，
+                且这里的column属性的属性值必须与下面SQL语句中字段名的别名一致；
+            -->
+            <result property="name" column="dealname" javaType="String"/>
+            <result property="post" column="dealpost" javaType="String"/>
+        </association>
+    </resultMap>
+
+    <!--
+    注意：
+      在保存报销单信息的时候，我们不仅需要在报销单表中插入一条信息，
+      同时还需要在报销单明细表中插入其相关联的报销单明细信息，因此我们需要报销单表该条记录的主键，
+      但是我们在插入之前是无法知道插入这个对象的主键的，因为这个主键是插入之后在数据库中自动生成的，
+      所以我们这里打开主键自动生成（useGeneratedKeys="true"），然后将自动生成的主键保存在ClaimVoucher
+      这个对象的id属性中
+    -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="DealRecord">
+        insert into deal_record(claim_voucher_id,deal_sn,deal_time,deal_way,deal_result,comment)
+        values (#{claimVoucherId},#{dealSn},#{dealTime},#{dealWay},#{dealResult},#{comment})
+    </insert>
+
+    <select id="selectByClaimVoucherId" parameterType="Integer" resultMap="dealRecord">
+        select dr.*,e.name dealname,e.post dealpost from deal_record dr
+        left join employee e on e.ename=dr.deal_sn
+        where dr.claim_voucher_id=#{claimVoucherId} order by dr.deal_time
+    </select>
+</mapper>

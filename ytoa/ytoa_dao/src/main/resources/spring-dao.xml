@@ -1,0 +1,33 @@
+﻿<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--设置注解扫描器-->
+   <context:component-scan base-package="com.yuan.oa"/>
+
+    <!--设置数据源-->
+   <bean id="dataSources" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql://localhost:3306/ytoa?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+       <property name="username" value="root"/>
+       <property name="password" value="root"/>
+    </bean>
+
+    <!--设置SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSources"/>
+        <!--设置允许使用别名-->
+        <property name="typeAliasesPackage" value="com.yuan.oa.entity"/>
+    </bean>
+    <!--配置映射器接口-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--
+            扫描dao包下的所有接口，并将其和配置的映射文件关联起来，组成持久化操作对象
+        -->
+        <property name="basePackage" value="com.yuan.oa.dao"/>
+    </bean>
+</beans>

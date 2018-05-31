@@ -194,7 +194,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="459" />
     <option name="width" value="914" />
     <option name="height" value="735" />
@@ -539,15 +539,15 @@
       <workItem from="1525746829214" duration="5923000" />
       <workItem from="1525773659599" duration="10023000" />
       <workItem from="1525835606861" duration="13324000" />
-      <workItem from="1525917812807" duration="10022000" />
+      <workItem from="1525917812807" duration="10319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90556000" />
+    <option name="totallyTimeSpent" value="90853000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -569,7 +569,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3298969" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.47594503" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.47594503" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.3298969" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.3298969" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.23903178" />

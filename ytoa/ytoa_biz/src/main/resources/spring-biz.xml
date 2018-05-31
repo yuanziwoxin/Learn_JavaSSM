@@ -1,0 +1,47 @@
+﻿<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+   <!--声明式事务是封装在业务层的，因此声明式事务的配置应在业务层-->
+
+    <!--因为业务层可能需要用到dao层，spring-biz.xml可能需要引入spring-dao.xml文件中的东西-->
+    <import resource="spring-dao.xml"/>
+
+    <!--设置注解扫描器-->
+   <context:component-scan base-package="com.yuan.oa.biz"/>
+    <!--打开aspectj的自动代理：因为使用声明式事务需要aspectj的表达式的-->
+   <aop:aspectj-autoproxy/>
+
+    <!--配置声明式事务-->
+    <!--配置事务管理器-->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSources"/>
+   </bean>
+
+    <!--配置通知-->
+   <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="search*" read-only="true"/>
+            <!--其他事务必须开启事务-->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+   </tx:advice>
+
+    <!--配置切入点-->
+   <aop:config>
+       <aop:pointcut id="txPointcut" expression="execution(* com.yuan.oa.biz.*.*(..))"/>
+       <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+   </aop:config>
+
+</beans>

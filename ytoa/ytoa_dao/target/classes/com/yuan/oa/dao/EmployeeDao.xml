@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuan.oa.dao.EmployeeDao">
+    <resultMap id="employee" type="com.yuan.oa.entity.Employee">
+        <id property="ename" column="ename" javaType="String"/>
+        <result property="password" column="password" javaType="String"/>
+        <result property="name" column="name" javaType="String"/>
+        <result property="departmentName" column="department_name" javaType="String"/>
+        <result property="post" column="post" javaType="String"/>
+        <association property="department" column="department_name" javaType="Department">
+            <!--
+            注意：
+            （1）如果这里的column属性的属性值与上面的column属性的属性值无重复，则可以不配置关联；
+            （2）如果有重复（相同），则这里的配置的column属性的属性值必须改成与上面不相同，
+            且这里的column属性的属性值必须与下面SQL语句中字段名的别名一致；
+            -->
+            <id property="dname" column="dname" javaType="String"/>
+            <result property="name" column="deptname" javaType="String"/>
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="Employee">
+        insert into employee values (#{ename},#{password},#{name},#{departmentName},#{post})
+    </insert>
+
+    <update id="update" parameterType="Employee">
+        update employee set password=#{password},name=#{name},department_name=#{departmentName},post=#{post} where ename=#{ename}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from employee  where ename=#{ename}
+    </delete>
+
+    <select id="selectOne" parameterType="String" resultMap="employee">
+        select e.*,d.dname dname,d.name deptname from employee e left join department d on d.dname=e.department_name
+        where e.ename=#{ename}
+    </select>
+
+    <select id="selectAll" resultMap="employee">
+        select e.*,d.dname dname,d.name deptname from employee e left join department d on d.dname=e.department_name
+    </select>
+    <!--
+    因为这里是采用将两个条件拼接的形式，这里需设置一个恒成立的条件（这里where后面就是一个恒成立的条件），
+    因为这两个条件有可能为空，比如总经理是不属于哪个部门的
+    -->
+    <!--根据部门编号和职务查询员工信息-->
+    <select id="selectByDepartmentAndPost" resultMap="employee">
+        select e.*,d.dname dname,d.name deptname from employee e left join department d on d.dname=e.department_name
+        where e.ename is not null
+        <if test="dname!=null">
+          and e.department_name=#{dname}
+        </if>
+        <if test="post!=null">
+           and e.post=#{post}
+        </if>
+    </select>
+
+</mapper>

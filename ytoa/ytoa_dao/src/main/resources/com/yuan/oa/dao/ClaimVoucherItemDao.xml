@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuan.oa.dao.ClaimVoucherItemDao">
+    <resultMap id="claimVoucherItem" type="com.yuan.oa.entity.ClaimVoucherItem">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="claim_voucher_id" column="claimVoucherId" javaType="Integer"/>
+        <result property="item" column="item" javaType="String"/>
+        <result property="amount" column="amount" javaType="Double"/>
+        <result property="comment" column="comment" javaType="String"/>
+    </resultMap>
+
+    <!--这里可以生成主键，把其保存到ClaimVoucherItem对象中的id属性中，也可不必这么做-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ClaimVoucherItem">
+        insert into claim_voucher_item(claim_voucher_id,item,amount,comment)
+        values (#{claimVoucherId},#{item},#{amount},#{comment})
+    </insert>
+
+    <update id="update" parameterType="ClaimVoucherItem">
+        update claim_voucher_item set claim_voucher_id=#{claimVoucherId},item=#{item},
+        amount=#{amount},comment=#{comment}
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from claim_voucher_item  where id=#{id}
+    </delete>
+
+
+    <!--#{claimVoucherId}中大括号中的属性值不必与持久层接口中的该方法的参数名称一致，除非其使用了@Param("XXX")指定了参数名-->
+    <select id="selectByClaimVoucherId" parameterType="Integer" resultMap="claimVoucherItem">
+        select * from claim_voucher_item where claim_voucher_id=#{claimVoucherId} order by id
+    </select>
+</mapper>

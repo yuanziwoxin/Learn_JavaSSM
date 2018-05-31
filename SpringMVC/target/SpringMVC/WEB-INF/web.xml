@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--注意web-app版本最好采用高版本的（最好3.0以上），这是为了匹配一些高版本的spring-webmvc等jar包-->
+
+    <!--配置Spring MVC的核心Servlet——DispatcherServlet-->
+    <!--
+        有三种方式配置springmvc配置文件
+         (1) 在WEB-INF文件夹下配置[servelt-name]-servlet.xml,比如SpringMVC-servlet.xml
+         (2) 改变命名空间 namespace
+         (3) 配置contextConfigLocation
+    -->
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--
+        第二种方式：可以改变命名空间，从而可以自定义springmvc的配置文件名称
+        注意:其配置文件仍然是在WEB-INF路径下
+        如这里的springmvc的配置文件是在/WEB-INF/yuanmvc.xml
+        -->
+        <!--<init-param>-->
+            <!--<param-name>namespace</param-name>-->
+            <!--<param-value>yuanmvc</param-value>-->
+        <!--</init-param>-->
+
+        <!--
+        第三种方式：配置contextConfigLocation
+        这种方式springmvc的配置文件不需要一定放在WEB-INF路径下
+        可以灵活放置，如放在资源文件夹（resources）等
+        -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>
+

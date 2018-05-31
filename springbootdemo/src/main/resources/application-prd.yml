@@ -1,0 +1,26 @@
+## 生产上线时使用的配置文件
+#设置上下文路径
+server:
+  servlet:
+    path: /springbootdemo
+  port: 80
+#设置日志文件位置
+# 设置日志的级别（最低打印哪个级别的日志）
+logging:
+  file: /local/user/springboottest.log
+  level:
+   root: info
+#设置数据库
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://155.10.36.69:3306/test
+    name: root
+    password: root
+#自定义配置项
+shopping-mall:
+ config:
+  name: 地道农家货
+  description: 这是一家专注于全国各地农家土特产买卖的购物网站
+  hot-sales: 36
+  show-advertise: true
