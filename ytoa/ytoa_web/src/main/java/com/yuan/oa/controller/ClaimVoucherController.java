@@ -50,7 +50,7 @@ public class ClaimVoucherController {
         map.put("dealRecords",claimVoucherBiz.getDealRecords(id));//获取报销单对应的所有处理记录
         return "claim_voucher_details";//跳转到报销单详情页面
     }
-    //个人创建的报销单信息显示
+    //个人创建的所有报销单信息显示
     @RequestMapping("/self")
     public String self(HttpSession session,Map<String,Object> map)
     {
@@ -60,7 +60,7 @@ public class ClaimVoucherController {
         map.put("list",list);
         return "claim_voucher_self";
     }
-    //个人待处理的报销单信息显示
+    //个人待处理的所有报销单信息显示
     @RequestMapping("/deal")
     public String deal(HttpSession session,Map<String,Object> map)
     {
